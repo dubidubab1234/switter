@@ -4,6 +4,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
 
 function Auth() {
@@ -37,6 +39,21 @@ function Auth() {
       setError(err.message);
     }
   };
+
+  const onGoogleSubmit = async (e) => {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMEssage = error.message;
+        console.log(errorMEssage);
+      });
+  };
+
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -59,7 +76,7 @@ function Auth() {
         <input type="submit" value={newAccount ? "Create Account" : "Log In"} />
       </form>
       <div>
-        <button>Continue with Google</button>
+        <button onClick={onGoogleSubmit}>Continue with Google</button>
       </div>
       {error}
     </div>

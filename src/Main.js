@@ -4,6 +4,8 @@ import Auth from "./routes/Auth";
 import Profile from "./routes/Profile";
 import EditProfile from "./routes/EditProfile";
 import React from "react";
+import Navigation from "./components/Navigation";
+import App from "./components/App";
 
 function Main({ isLoggedIn }) {
   return (
