@@ -3,10 +3,9 @@ import Home from "./routes/Home";
 import Auth from "./routes/Auth";
 import Profile from "./routes/Profile";
 import EditProfile from "./routes/EditProfile";
-import { useState } from "react";
+import React from "react";
 
-function Main() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+function Main({ isLoggedIn }) {
   return (
     <BrowserRouter>
       <Routes>
