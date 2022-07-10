@@ -7,13 +7,13 @@ import React from "react";
 import Navigation from "./components/Navigation";
 import App from "./components/App";
 
-function Main({ isLoggedIn }) {
+function Main({ isLoggedIn, userObj }) {
   return (
     <BrowserRouter>
       <Routes>
         {isLoggedIn ? (
           <>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<Home userObj={userObj} />}></Route>
             <Route path="profile" element={<Profile />}></Route>
             <Route path="profile/edit" element={<EditProfile />}></Route>
           </>

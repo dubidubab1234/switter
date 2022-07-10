@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import myBase from "../myBase";
+import { myBase } from "../myBase";
 import {
   getAuth,
   createUserWithEmailAndPassword,
