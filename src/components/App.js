@@ -1,6 +1,5 @@
 import Main from "../Main";
 import React, { useEffect, useState } from "react";
-import myBase from "../myBase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function App() {
