@@ -31,7 +31,9 @@ function Home({ userObj }) {
         <FileInputTop userObj={userObj} />
         <div>
           {tweets.map((comment) => {
-            return <Tweet key={comment.id} content={comment.text} />;
+            return (
+              <Tweet key={comment.id} contentInfo={comment} userObj={userObj} />
+            );
           })}
         </div>
       </div>
