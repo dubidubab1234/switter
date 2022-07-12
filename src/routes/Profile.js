@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navigation from "../components/Navigation";
-import EditProfile from "./EditProfile";
 import { getAuth, signOut } from "firebase/auth";
 
 function Profile() {

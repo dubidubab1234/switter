@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "../components/Navigation";
-import { myStorage } from "../myBase";
+import { myDB } from "../myBase";
 import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
 import Tweet from "../components/Tweet";
 import FileInputTop from "../components/FileInputTop";
@@ -8,10 +8,7 @@ import FileInputTop from "../components/FileInputTop";
 function Home({ userObj }) {
   const [tweets, setTweets] = useState([]);
 
-  const q = query(
-    collection(myStorage, "tweets"),
-    orderBy("createdAt", "desc")
-  );
+  const q = query(collection(myDB, "tweets"), orderBy("createdAt", "desc"));
 
   useEffect(() => {
     onSnapshot(q, async (snapShot) => {

@@ -1,13 +1,18 @@
 import { deleteDoc, doc, updateDoc } from "firebase/firestore";
+import { deleteObject, ref } from "firebase/storage";
 import React, { useState } from "react";
-import { myStorage } from "../myBase";
+import { myDB, storageService } from "../myBase";
 
 function Tweet({ contentInfo, userObj }) {
   const [editing, setEditing] = useState(false);
   const [editInputValue, setEditInputValue] = useState(contentInfo.text);
 
   const handleDelete = async () => {
-    await deleteDoc(doc(myStorage, "tweets", contentInfo.id));
+    if (contentInfo.attachmentReference) {
+      const imgRef = ref(storageService, contentInfo.attachmentReference);
+      deleteObject(imgRef);
+    }
+    await deleteDoc(doc(myDB, "tweets", contentInfo.id));
   };
 
   let isOwner;
@@ -26,7 +31,7 @@ function Tweet({ contentInfo, userObj }) {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const wantToEdit = doc(myStorage, "tweets", contentInfo.id);
+    const wantToEdit = doc(myDB, "tweets", contentInfo.id);
     await updateDoc(wantToEdit, {
       text: editInputValue,
     });
@@ -38,6 +43,7 @@ function Tweet({ contentInfo, userObj }) {
       {!editing ? (
         <>
           <h4>{contentInfo.text}</h4>
+          {contentInfo.attachmentUrl && <img src={contentInfo.attachmentUrl} />}
           {isOwner && (
             <>
               <button onClick={handleDelete}>delete</button>
