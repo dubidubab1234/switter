@@ -4,7 +4,6 @@ import { myStorage } from "../myBase";
 import {
   addDoc,
   collection,
-  getDocs,
   serverTimestamp,
   query,
   onSnapshot,
