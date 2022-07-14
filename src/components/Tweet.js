@@ -92,6 +92,7 @@ function Tweet({ contentInfo, userObj }) {
         <>
           <h4>{contentInfo.text}</h4>
           {contentInfo.attachmentUrl && <img src={contentInfo.attachmentUrl} />}
+          <h6>{contentInfo.name}</h6>
           {isOwner && (
             <>
               <button onClick={handleDelete}>delete</button>

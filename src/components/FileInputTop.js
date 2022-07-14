@@ -11,6 +11,9 @@ function FileInputTop({ userObj }) {
 
   async function onSubmit(e) {
     e.preventDefault();
+
+    const name = userObj.email.split("@")[0];
+
     let attachmentUrl = null;
     let attachmentReference = "";
     if (attachment) {
@@ -30,6 +33,7 @@ function FileInputTop({ userObj }) {
       creatorId: userObj.uid,
       attachmentUrl,
       attachmentReference,
+      name,
     };
     await addDoc(collection(myDB, "tweets"), newTweet);
 

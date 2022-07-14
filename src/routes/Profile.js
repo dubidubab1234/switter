@@ -4,7 +4,6 @@ import Navigation from "../components/Navigation";
 import { getAuth, signOut } from "firebase/auth";
 import {
   collection,
-  getDocs,
   onSnapshot,
   orderBy,
   query,
