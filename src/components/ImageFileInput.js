@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 function ImageFileInput({ attachment, setAttachment }) {
   const onInputChange = (e) => {
     const newImageFile = e.target.files[0];
+
     const reader = new FileReader();
     reader.onloadend = (finishedEvent) => {
       const {

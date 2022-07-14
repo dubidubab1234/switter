@@ -5,7 +5,7 @@ import {
   ref,
   uploadString,
 } from "firebase/storage";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { myDB, storageService } from "../myBase";
 import ImageFileInput from "./ImageFileInput";
 import { uuid } from "uuidv4";
@@ -39,9 +39,9 @@ function Tweet({ contentInfo, userObj }) {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    let attachmentUrl = null;
-    let attachmentReference = "";
     if (editImage) {
+      let attachmentUrl = null;
+      let attachmentReference = "";
       const dataType = editImage.substr(0, 5);
       if (dataType == "data:") {
         // 기존 이미지 삭제
@@ -71,9 +71,16 @@ function Tweet({ contentInfo, userObj }) {
         });
       }
     } else {
+      if (contentInfo.attachmentReference) {
+        const imgRef = ref(storageService, contentInfo.attachmentReference);
+        deleteObject(imgRef);
+      }
+
       const wantToEdit = doc(myDB, "tweets", contentInfo.id);
       await updateDoc(wantToEdit, {
         text: editInputValue,
+        attachmentUrl: null,
+        attachmentReference: "",
       });
     }
     setEditing(false);
