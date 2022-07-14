@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Auth from "./routes/Auth";
 import Profile from "./routes/Profile";
-import EditProfile from "./routes/EditProfile";
 import React from "react";
 
 function Main({ isLoggedIn, userObj }) {
@@ -16,7 +15,6 @@ function Main({ isLoggedIn, userObj }) {
               path="profile"
               element={<Profile userObj={userObj} />}
             ></Route>
-            <Route path="profile/edit" element={<EditProfile />}></Route>
           </>
         ) : (
           <Route path="/" element={<Auth />} />

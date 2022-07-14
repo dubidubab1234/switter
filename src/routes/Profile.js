@@ -49,18 +49,25 @@ function Profile({ userObj }) {
 
   return (
     <>
-      <Navigation />
+      <Navigation userObj={userObj} />
       <span>Profile</span>
       <button onClick={onLogoutClick}>Sign Out</button>
 
       {tweets && (
-        <div>
-          {tweets.map((comment) => {
-            return (
-              <Tweet key={comment.id} contentInfo={comment} userObj={userObj} />
-            );
-          })}
-        </div>
+        <>
+          <h3>My sweets</h3>
+          <div>
+            {tweets.map((comment) => {
+              return (
+                <Tweet
+                  key={comment.id}
+                  contentInfo={comment}
+                  userObj={userObj}
+                />
+              );
+            })}
+          </div>
+        </>
       )}
     </>
   );

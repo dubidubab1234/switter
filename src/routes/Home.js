@@ -23,7 +23,7 @@ function Home({ userObj }) {
 
   return (
     <>
-      <Navigation />
+      <Navigation userObj={userObj} />
       <div>
         <FileInputTop userObj={userObj} />
         <div>
