@@ -3,7 +3,7 @@ import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import React, { useState } from "react";
 import { myDB, storageService } from "../myBase";
 import ImageFileInput from "./ImageFileInput";
-const { uuid } = require("uuidv4");
+import { v4 as uuidv4 } from "uuid";
 
 function FileInputTop({ userObj }) {
   const [tweet, setTweet] = useState("");
@@ -17,7 +17,7 @@ function FileInputTop({ userObj }) {
     let attachmentUrl = null;
     let attachmentReference = "";
     if (attachment) {
-      attachmentReference = `${userObj.uid}/${uuid()}`;
+      attachmentReference = `${userObj.uid}/${uuidv4()}`;
       const attachmentRef = ref(storageService, attachmentReference);
       const response = await uploadString(
         attachmentRef,

@@ -8,7 +8,7 @@ import {
 import React, { useState } from "react";
 import { myDB, storageService } from "../myBase";
 import ImageFileInput from "./ImageFileInput";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 
 function Tweet({ contentInfo, userObj }) {
   const [editing, setEditing] = useState(false);
@@ -52,7 +52,7 @@ function Tweet({ contentInfo, userObj }) {
 
         //새로운 이미지를 입력했을 때
 
-        attachmentReference = `${userObj.uid}/${uuid()}`;
+        attachmentReference = `${userObj.uid}/${uuidv4()}`;
         const attachmentRef = ref(storageService, attachmentReference);
         const response = await uploadString(
           attachmentRef,
