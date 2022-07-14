@@ -45,8 +45,10 @@ function Tweet({ contentInfo, userObj }) {
       const dataType = editImage.substr(0, 5);
       if (dataType == "data:") {
         // 기존 이미지 삭제
-        const imgRef = ref(storageService, contentInfo.attachmentReference);
-        deleteObject(imgRef);
+        if (contentInfo.attachmentRef) {
+          const imgRef = ref(storageService, contentInfo.attachmentReference);
+          deleteObject(imgRef);
+        }
 
         //새로운 이미지를 입력했을 때
 
