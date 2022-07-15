@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { myDB, storageService } from "../myBase";
 import ImageFileInput from "./ImageFileInput";
 import { v4 as uuidv4 } from "uuid";
+import "./FileInputTop.css";
 
 function FileInputTop({ userObj }) {
   const [tweet, setTweet] = useState("");
@@ -47,17 +48,24 @@ function FileInputTop({ userObj }) {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <input
-          value={tweet}
-          onChange={onChange}
-          type="text"
-          placeholder="what's going on?"
-          maxLength={120}
-        />
-        <ImageFileInput attachment={attachment} setAttachment={setAttachment} />
-        <input type="submit" value="send" />
-      </form>
+      <div className="file-input-top">
+        <form onSubmit={onSubmit}>
+          <input
+            value={tweet}
+            onChange={onChange}
+            type="text"
+            placeholder="what's going on?"
+            maxLength={120}
+            className="file-input-text"
+          />
+          <ImageFileInput
+            attachment={attachment}
+            setAttachment={setAttachment}
+            className="file-input-image"
+          />
+          <input type="submit" value="업로드" className="send-button" />
+        </form>
+      </div>
     </>
   );
 }

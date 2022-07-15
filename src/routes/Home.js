@@ -4,6 +4,7 @@ import { myDB } from "../myBase";
 import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
 import Tweet from "../components/Tweet";
 import FileInputTop from "../components/FileInputTop";
+import "../components/Home.css";
 
 function Home({ userObj }) {
   const [tweets, setTweets] = useState([]);
@@ -24,7 +25,7 @@ function Home({ userObj }) {
   return (
     <>
       <Navigation userObj={userObj} />
-      <div>
+      <div className="input-in-home">
         <FileInputTop userObj={userObj} />
         <div>
           {tweets.map((comment) => {

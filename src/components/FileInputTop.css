@@ -1,0 +1,27 @@
+.file-input-top {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
+.file-input-text {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 10px 40px;
+}
+
+.file-input-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.send-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

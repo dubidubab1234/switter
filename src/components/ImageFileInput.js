@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
+import "./ImageFileInput.css";
 
 function ImageFileInput({ attachment, setAttachment }) {
   const onInputChange = (e) => {
@@ -20,9 +21,17 @@ function ImageFileInput({ attachment, setAttachment }) {
 
   return (
     <>
-      <img src={attachment} alt="이미지 미리 보기" />
-      <input type="file" accept="image/*" onChange={onInputChange} />
-      {attachment && <button onClick={handleCancel}>delete image</button>}
+      <div className="img-center">
+        {attachment && <img src={attachment} alt="미리 보기" />}
+        <div>
+          <input type="file" accept="image/*" onChange={onInputChange} />
+        </div>
+        {attachment && (
+          <button onClick={handleCancel} className="delete-button">
+            지우기
+          </button>
+        )}
+      </div>
     </>
   );
 }

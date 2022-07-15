@@ -9,6 +9,7 @@ import React, { useState } from "react";
 import { myDB, storageService } from "../myBase";
 import ImageFileInput from "./ImageFileInput";
 import { v4 as uuidv4 } from "uuid";
+import "./Tweet.css";
 
 function Tweet({ contentInfo, userObj }) {
   const [editing, setEditing] = useState(false);
@@ -87,12 +88,12 @@ function Tweet({ contentInfo, userObj }) {
   };
 
   return (
-    <div>
+    <div className="tweet-center">
       {!editing ? (
         <>
           <h4>{contentInfo.text}</h4>
           {contentInfo.attachmentUrl && <img src={contentInfo.attachmentUrl} />}
-          <h6>{contentInfo.name}</h6>
+          <h6>- {contentInfo.name} -</h6>
           {isOwner && (
             <>
               <button onClick={handleDelete}>delete</button>
