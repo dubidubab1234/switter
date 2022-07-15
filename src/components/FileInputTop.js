@@ -54,7 +54,7 @@ function FileInputTop({ userObj }) {
             value={tweet}
             onChange={onChange}
             type="text"
-            placeholder="what's going on?"
+            placeholder="무슨 생각을 하고 있나요?"
             maxLength={120}
             className="file-input-text"
           />

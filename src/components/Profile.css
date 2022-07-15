@@ -1,0 +1,11 @@
+h3,
+span {
+  color: #ccccff;
+  font-size: 20px;
+}
+
+.logout {
+  margin-left: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+}

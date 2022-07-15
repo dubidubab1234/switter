@@ -2,11 +2,12 @@ li {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  border: 1px solid black;
+  border: 1px solid #ccccff;
   border-radius: 30px;
   width: 250px;
   font-size: 20px;
   margin-bottom: 5px;
+  color: #ccccff;
 }
 
 .navbar {
@@ -14,4 +15,8 @@ li {
   display: flex;
   justify-content: center;
   flex-direction: row;
+}
+
+div {
+  text-align: center;
 }

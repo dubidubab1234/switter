@@ -4,6 +4,7 @@
   margin-left: auto;
   border: 1px solid black;
   border-radius: 50px;
+  background-color: white;
 }
 
 .file-input-text {
@@ -24,4 +25,5 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  background-color: #ccccff;
 }

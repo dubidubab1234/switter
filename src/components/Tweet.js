@@ -96,8 +96,12 @@ function Tweet({ contentInfo, userObj }) {
           <h6>- {contentInfo.name} -</h6>
           {isOwner && (
             <>
-              <button onClick={handleDelete}>delete</button>
-              <button onClick={handleEdit}>edit</button>
+              <button onClick={handleDelete} className="delete-button">
+                지우기
+              </button>
+              <button onClick={handleEdit} className="edit-button">
+                편집
+              </button>
             </>
           )}
         </>
@@ -113,7 +117,11 @@ function Tweet({ contentInfo, userObj }) {
               attachment={editImage}
               setAttachment={setEditImage}
             />
-            <input type="submit" value="update" />
+            <input
+              type="submit"
+              value="업데이트"
+              style={{ backgroundColor: "#ccccff", borderRadius: "10px" }}
+            />
           </form>
         </>
       )}

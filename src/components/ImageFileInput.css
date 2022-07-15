@@ -23,4 +23,13 @@ img {
 .delete-button {
   border-radius: 10px;
   margin-bottom: 10px;
+  background-color: #ccccff;
+}
+
+button {
+  background-color: #ccccff;
+}
+
+.filebox label:hover {
+  cursor: pointer;
 }

@@ -6,12 +6,14 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+import "../components/Auth.css";
 
 function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newAccount, createNewAccount] = useState(false);
   const [error, setError] = useState("");
+
   const onChange = (e) => {
     const {
       target: { name, value },
@@ -32,10 +34,8 @@ function Auth() {
       } else {
         data = await signInWithEmailAndPassword(auth, email, password);
       }
-
-      console.log(data);
     } catch (err) {
-      setError(err.message);
+      alert("구글 이메일로 가입해주세요.");
     }
   };
 
@@ -54,31 +54,44 @@ function Auth() {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          name="email"
-          placeholder="Email"
-          required
-          value={email}
-          onChange={onChange}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-          value={password}
-          onChange={onChange}
-        />
-        <input type="submit" value={newAccount ? "Create Account" : "Log In"} />
-      </form>
-      <div>
-        <button onClick={onGoogleSubmit}>Continue with Google</button>
+    <>
+      <div className="auth-form">
+        <div className="center">
+          <form onSubmit={onSubmit}>
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              required
+              value={email}
+              onChange={onChange}
+              className="em-ps"
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+              value={password}
+              onChange={onChange}
+              className="em-ps"
+            />
+            <div></div>
+            <input
+              type="submit"
+              id="login"
+              value={newAccount ? "새 계정 만들기" : "로그인"}
+              style={{ backgroundColor: "#ccccff" }}
+            />
+          </form>
+          <div>
+            <button onClick={onGoogleSubmit} style={{ borderRadius: "20px" }}>
+              구글 메일로 가입
+            </button>
+          </div>
+        </div>
       </div>
-      {error}
-    </div>
+    </>
   );
 }
 

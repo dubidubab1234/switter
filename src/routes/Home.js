@@ -24,15 +24,21 @@ function Home({ userObj }) {
 
   return (
     <>
-      <Navigation userObj={userObj} />
-      <div className="input-in-home">
-        <FileInputTop userObj={userObj} />
-        <div>
-          {tweets.map((comment) => {
-            return (
-              <Tweet key={comment.id} contentInfo={comment} userObj={userObj} />
-            );
-          })}
+      <div className="background">
+        <Navigation userObj={userObj} />
+        <div className="input-in-home">
+          <FileInputTop userObj={userObj} />
+          <div>
+            {tweets.map((comment) => {
+              return (
+                <Tweet
+                  key={comment.id}
+                  contentInfo={comment}
+                  userObj={userObj}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

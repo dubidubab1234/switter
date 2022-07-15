@@ -11,14 +11,16 @@ function Navigation({ userObj }) {
   }
   return (
     <>
-      <ul>
-        <Link to="/" className="navbar">
-          <li>Home</li>
-        </Link>
-        <Link to="/profile" className="navbar">
-          <li>{userObj.displayName}의 Profile</li>
-        </Link>
-      </ul>
+      <div>
+        <ul>
+          <Link to="/" className="navbar">
+            <li>Home</li>
+          </Link>
+          <Link to="/profile" className="navbar">
+            <li>{userObj.displayName}의 Profile</li>
+          </Link>
+        </ul>
+      </div>
     </>
   );
 }

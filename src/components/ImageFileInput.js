@@ -23,8 +23,16 @@ function ImageFileInput({ attachment, setAttachment }) {
     <>
       <div className="img-center">
         {attachment && <img src={attachment} alt="미리 보기" />}
-        <div>
-          <input type="file" accept="image/*" onChange={onInputChange} />
+        <div className="filebox">
+          <label htmlFor="ex_file">이미지 업로드</label>
+          <input
+            type="file"
+            id="ex_file"
+            accept="image/*"
+            onChange={onInputChange}
+            className="select-file"
+            style={{ display: "none" }}
+          />
         </div>
         {attachment && (
           <button onClick={handleCancel} className="delete-button">

@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import { myDB } from "../myBase";
 import Tweet from "../components/Tweet";
+import "../components/Profile.css";
 
 function Profile({ userObj }) {
   const [tweets, setTweets] = useState([]);
@@ -48,26 +49,29 @@ function Profile({ userObj }) {
 
   return (
     <>
-      <Navigation userObj={userObj} />
-      <span>Profile</span>
-      <button onClick={onLogoutClick}>Sign Out</button>
+      <div className="background">
+        <Navigation userObj={userObj} />
+        <button onClick={onLogoutClick} className="logout">
+          로그아웃
+        </button>
 
-      {tweets && (
-        <>
-          <h3>My sweets</h3>
-          <div>
-            {tweets.map((comment) => {
-              return (
-                <Tweet
-                  key={comment.id}
-                  contentInfo={comment}
-                  userObj={userObj}
-                />
-              );
-            })}
-          </div>
-        </>
-      )}
+        {tweets && (
+          <>
+            <h3>My sweets</h3>
+            <div>
+              {tweets.map((comment) => {
+                return (
+                  <Tweet
+                    key={comment.id}
+                    contentInfo={comment}
+                    userObj={userObj}
+                  />
+                );
+              })}
+            </div>
+          </>
+        )}
+      </div>
     </>
   );
 }

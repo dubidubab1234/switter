@@ -21,6 +21,10 @@ function App() {
     });
   }, [isLoggedIn]);
 
+  const style = {
+    textAlign: "center",
+  };
+
   return (
     <>
       {init ? (
@@ -28,7 +32,7 @@ function App() {
       ) : (
         "initializing..."
       )}
-      <footer>&copy; switter {new Date().getFullYear()}</footer>
+      <footer style={style}>&copy; switter {new Date().getFullYear()}</footer>
     </>
   );
 }
