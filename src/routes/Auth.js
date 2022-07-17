@@ -13,6 +13,7 @@ function Auth() {
   const [password, setPassword] = useState("");
   const [newAccount, createNewAccount] = useState(false);
   const [error, setError] = useState("");
+  const [logIn, setLogIn] = useState("새 계정 만들기");
 
   const onChange = (e) => {
     const {
@@ -35,7 +36,7 @@ function Auth() {
         data = await signInWithEmailAndPassword(auth, email, password);
       }
     } catch (err) {
-      alert("구글 이메일로 가입해주세요.");
+      alert("정상적으로 처리되지 않았습니다.");
     }
   };
 
@@ -51,6 +52,15 @@ function Auth() {
         const errorMEssage = error.message;
         console.log(errorMEssage);
       });
+  };
+
+  const handleNewAccount = (e) => {
+    createNewAccount((prev) => !prev);
+    if (logIn == "새 계정 만들기") {
+      setLogIn("로그인");
+    } else {
+      setLogIn("새 계정 만들기");
+    }
   };
 
   return (
@@ -84,9 +94,12 @@ function Auth() {
               style={{ backgroundColor: "#ccccff" }}
             />
           </form>
-          <div>
+          <div style={{ marginLeft: "auto", marginRight: "auto" }}>
             <button onClick={onGoogleSubmit} style={{ borderRadius: "20px" }}>
-              구글 메일로 가입
+              구글 메일로 로그인
+            </button>
+            <button onClick={handleNewAccount} style={{ borderRadius: "20px" }}>
+              {logIn}
             </button>
           </div>
         </div>

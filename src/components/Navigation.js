@@ -11,7 +11,7 @@ function Navigation({ userObj }) {
   }
   return (
     <>
-      <div>
+      <div style={{ marginLeft: "auto", marginRight: "auto" }}>
         <ul>
           <Link to="/" className="navbar">
             <li>Home</li>
