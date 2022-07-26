@@ -9,7 +9,7 @@ import App from "./components/App";
 
 function Main({ isLoggedIn, userObj }) {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         {isLoggedIn ? (
           <>
