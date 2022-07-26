@@ -7,7 +7,7 @@ import CommonStyle from "./components/CommonStyle";
 
 function Main({ isLoggedIn, userObj }) {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<CommonStyle />}>
           {isLoggedIn ? (
